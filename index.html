@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yasmine’s Hair & Beauty | Luxury Salon</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  color: #fff;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: #0a0a0a;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  color: #d4af37;
+  font-size: 20px;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+  url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 54px;
+  color: #d4af37;
+}
+
+.hero p {
+  max-width: 600px;
+  color: #ddd;
+  margin-top: 10px;
+}
+
+.btn {
+  margin-top: 15px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  background: #d4af37;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 8%;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #d4af37;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #151515;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #222;
+  text-align: center;
+}
+
+/* REVIEW */
+.review {
+  background: #151515;
+  padding: 15px;
+  border-left: 4px solid #d4af37;
+  border-radius: 8px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 20px;
+  width: 350px;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  color: #d4af37;
+}
+
+/* CALENDAR */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day {
+  background: #151515;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+/* ADMIN */
+.admin-panel {
+  display: none;
+  margin-top: 20px;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 14px 18px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* OFFER */
+.offer-box {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #000;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Yasmine’s Luxury Salon</h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#admin">Admin</a>
+    <a href="#offer">Offer</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Luxury Hair Experience</h2>
+  <p>Balayage • Coloring • Styling • Extensions • Keratin Treatments</p>
+
+  <button class="btn" onclick="openBooking()">Book Appointment</button>
+  <button class="btn" onclick="openOffer()">Claim Offer</button>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="title">Services</h2>
+  <div class="grid">
+    <div class="card">Hair Coloring</div>
+    <div class="card">Balayage</div>
+    <div class="card">Haircut</div>
+    <div class="card">Braids</div>
+    <div class="card">Keratin</div>
+    <div class="card">Extensions</div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section>
+  <h2 class="title">Appointment Calendar</h2>
+  <div id="calendar" class="grid"></div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <h2 class="title">Reviews</h2>
+  <div class="grid">
+    <div class="review">“Best salon in Dearborn!”</div>
+    <div class="review">“Amazing results every visit.”</div>
+    <div class="review">“Very professional staff.”</div>
+  </div>
+</section>
+
+<!-- OFFER SECTION -->
+<section id="offer">
+  <h2 class="title">Exclusive Offer</h2>
+  <div class="offer-box">
+    🎉 Get 10% OFF your first appointment  
+    <br><br>
+    <button class="btn" onclick="openOffer()">Claim Now</button>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section id="admin">
+  <h2 class="title">Admin Panel</h2>
+  <button class="btn" onclick="loginAdmin()">Admin Login</button>
+  <div class="admin-panel" id="adminPanel">
+    <h3>Bookings</h3>
+    <div id="bookings"></div>
+  </div>
+</section>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeBooking()">✖</span>
+    <h3>Book Appointment</h3>
+
+    <input id="name" placeholder="Name">
+    <input id="phone" placeholder="Phone">
+    <input id="date" type="date">
+
+    <select id="service">
+      <option>Haircut</option>
+      <option>Coloring</option>
+      <option>Balayage</option>
+      <option>Extensions</option>
+    </select>
+
+    <button class="btn" onclick="saveBooking()">Confirm Booking</button>
+  </div>
+</div>
+
+<!-- OFFER MODAL -->
+<div class="modal" id="offerModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeOffer()">✖</span>
+    <h3>🎁 Your Discount</h3>
+    <p id="coupon">Click below to generate code</p>
+    <button class="btn" onclick="generateOffer()">Get Code</button>
+  </div>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp"
+   href="https://wa.me/13136331117?text=Hi%20I%20want%20to%20book%20an%20appointment"
+   target="_blank">
+   WhatsApp Book Now
+</a>
+
+<script>
+
+// ===== BOOKING =====
+function openBooking(){ document.getElementById("modal").style.display="flex"; }
+function closeBooking(){ document.getElementById("modal").style.display="none"; }
+
+function saveBooking(){
+  let b = JSON.parse(localStorage.getItem("bookings")||"[]");
+
+  b.push({
+    name: name.value,
+    phone: phone.value,
+    date: date.value,
+    service: service.value
+  });
+
+  localStorage.setItem("bookings", JSON.stringify(b));
+  alert("Booked Successfully!");
+  closeBooking();
+}
+
+// ===== ADMIN =====
+function loginAdmin(){
+  let p = prompt("Enter Admin Password");
+  if(p==="1234"){
+    document.getElementById("adminPanel").style.display="block";
+    loadBookings();
+  } else alert("Wrong Password");
+}
+
+function loadBookings(){
+  let b = JSON.parse(localStorage.getItem("bookings")||"[]");
+  let box = document.getElementById("bookings");
+  box.innerHTML="";
+
+  b.forEach((x,i)=>{
+    box.innerHTML+=`
+      <div class="card">
+        <b>${x.name}</b><br>
+        ${x.phone}<br>
+        ${x.date}<br>
+        ${x.service}<br>
+        <button class="btn" onclick="deleteB(${i})">Delete</button>
+      </div>`;
+  });
+}
+
+function deleteB(i){
+  let b = JSON.parse(localStorage.getItem("bookings")||"[]");
+  b.splice(i,1);
+  localStorage.setItem("bookings",JSON.stringify(b));
+  loadBookings();
+}
+
+// ===== CALENDAR =====
+let cal=document.getElementById("calendar");
+for(let i=1;i<=30;i++){
+  cal.innerHTML+=`<div class="day">${i}</div>`;
+}
+
+// ===== OFFER =====
+function openOffer(){
+  document.getElementById("offerModal").style.display="flex";
+}
+
+function closeOffer(){
+  document.getElementById("offerModal").style.display="none";
+}
+
+function generateOffer(){
+  let code="YASMINE"+Math.floor(Math.random()*9999);
+  document.getElementById("coupon").innerHTML=
+  "Your Code: <b>"+code+"</b>";
+}
+
+</script>
+
+</body>
+</html>
